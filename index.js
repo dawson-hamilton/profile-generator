@@ -8,6 +8,7 @@ const writeToFileAsync = util.promisify(fs.writeFile);
 
 async function init() {
     try {
+        let name = await fullName();
         let { username } = await getName();
         let color = await getColor();
         let githubReturn = await gitHubCall(username);
@@ -26,7 +27,7 @@ async function init() {
             repos: userProfile.public_repos
         }
         let starred = userStars.data.length;
-        let newHtml = htmlGen(color, profile, starred)
+        let newHtml = htmlGen(color, profile, starred, name)
         let options = { format: 'A4' };
         await writeToFileAsync(`${username}.html`, newHtml)
         var html = await fs.readFileSync(`./${username}.html`, 'utf8')
@@ -38,6 +39,20 @@ async function init() {
     } catch (err) {
         console.log(err)
     }
+}
+
+function fullName() {
+    return inquirer
+        .prompt([{
+            type: "input",
+            message: "What is your first name?",
+            name: "firstname"
+        },
+        {
+            type: "input",
+            message: "What is your last name?",
+            name: "lastname"
+        }])
 }
 
 function getName() {
@@ -70,4 +85,4 @@ function getGithubStarred(username) {
         .get(`https://api.github.com/users/${username}/starred`)
     return stars
 }
-init()
+init();

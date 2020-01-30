@@ -1,32 +1,32 @@
 const colors = {
-  green: {
-    wrapperBackground: "#E6E1C3",
-    headerBackground: "#C1C72C",
-    headerColor: "black",
-    photoBorderColor: "#black"
-  },
-  blue: {
-    wrapperBackground: "#5F64D3",
-    headerBackground: "#26175A",
-    headerColor: "white",
-    photoBorderColor: "#73448C"
-  },
-  pink: {
-    wrapperBackground: "#879CDF",
-    headerBackground: "#FF8374",
-    headerColor: "white",
-    photoBorderColor: "#FEE24C"
-  },
-  red: {
-    wrapperBackground: "#DE9967",
-    headerBackground: "#870603",
-    headerColor: "white",
-    photoBorderColor: "white"
-  }
+    green: {
+        wrapperBackground: "#E6E1C3",
+        headerBackground: "#C1C72C",
+        headerColor: "black",
+        photoBorderColor: "#black"
+    },
+    blue: {
+        wrapperBackground: "#5F64D3",
+        headerBackground: "#26175A",
+        headerColor: "white",
+        photoBorderColor: "#73448C"
+    },
+    pink: {
+        wrapperBackground: "#879CDF",
+        headerBackground: "#FF8374",
+        headerColor: "white",
+        photoBorderColor: "#FEE24C"
+    },
+    red: {
+        wrapperBackground: "#DE9967",
+        headerBackground: "#870603",
+        headerColor: "white",
+        photoBorderColor: "white"
+    }
 };
 
 function generateHTML(data, profile, starred, name) {
-  return `<!DOCTYPE html>
+    return `<!DOCTYPE html>
 <html lang="en">
    <head>
       <meta charset="UTF-8" />
@@ -34,6 +34,7 @@ function generateHTML(data, profile, starred, name) {
       <meta http-equiv="X-UA-Compatible" content="ie=edge" />
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
       <link href="https://fonts.googleapis.com/css?family=BioRhyme|Cabin&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
       <title>Document</title>
       <style>
           @page {
@@ -101,7 +102,6 @@ function generateHTML(data, profile, starred, name) {
          border-radius: 6px;
          }
          .photo-header img {
-         position: relative;
          width: 250px;
          height: 250px;
          border-radius: 50%;
@@ -109,7 +109,6 @@ function generateHTML(data, profile, starred, name) {
          margin-top: -75px;
          border: 6px solid ${colors[data.color].photoBorderColor};
          box-shadow: rgba(0, 0, 0, 0.3) 4px 1px 20px 4px;
-         left: 490px;
          }
          .photo-header h1, .photo-header h2 {
          width: 100%;
@@ -178,15 +177,15 @@ function generateHTML(data, profile, starred, name) {
   <div class="main wrapper">
       <div class="row">
           <div class="photo-header">
-              <img src="${profile.picture}" alt="a picture of the user" class="header">
+                    <img src="${profile.picture}" alt="a picture of the user" class="header">
               <h1>Hi!
                   <br>
-                  My name is ${profile.name}!
-              </h1>
+                  My name is ${name.firstname} ${name.lastname}!
+             </h1>
               <nav>
                   <ul class="links-nav">
                       <li class="nav-link">${profile.location}</li>
-                      <li class="nav-link"><a href="${profile.github_url}">Github</a></li>
+                      <li class="nav-link"><a href="${profile.github}">Github</a></li>
                       <li class="nav-link"><a href="${profile.blog}">Blog</a></li>
                   </ul>
               </nav>
