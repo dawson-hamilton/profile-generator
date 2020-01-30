@@ -101,6 +101,7 @@ function generateHTML(data, profile, starred, name) {
          border-radius: 6px;
          }
          .photo-header img {
+         position: relative;
          width: 250px;
          height: 250px;
          border-radius: 50%;
@@ -108,6 +109,7 @@ function generateHTML(data, profile, starred, name) {
          margin-top: -75px;
          border: 6px solid ${colors[data.color].photoBorderColor};
          box-shadow: rgba(0, 0, 0, 0.3) 4px 1px 20px 4px;
+         left: 490px;
          }
          .photo-header h1, .photo-header h2 {
          width: 100%;
