@@ -179,7 +179,7 @@ function generateHTML(data, profile, starred, name) {
               <img src="${profile.picture}" alt="a picture of the user" class="header">
               <h1>Hi!
                   <br>
-                  My name is ${name.firstname} ${name.lastname}!
+                  My name is ${profile.name}!
               </h1>
               <nav>
                   <ul class="links-nav">

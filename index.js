@@ -5,52 +5,24 @@ const axios = require("axios");
 const util = require("util");
 console.log(htmlGen.colors);
 
-// const writeFileAsync = util.promisify(fs.writeFile);
-
 function promptUser() {
-    return inquirer.prompt([
-        {
-            type: "input",
-            name: "username",
-            message: "What is your githHUB username?"
-        },
-        {
-            type: "input",
-            name: "color",
-            message: "What is your favorite color?",
-            choices: ["green", "blue", "pink", "red"],
-            defualt: "green"
-        },
-    ])
-        .then(function ({ username }) {
-            const queryUrl = `https://api.github.com/users/${username}`;
-
-            axios.get(queryUrl).then(function (res) {
-                const results = res;
-                console.log(results);
+    function getName() {
+        let username = inquirer
+            .prompt({
+                type: "input",
+                message: "What is your GITHUB username?",
+                name: "username"
             })
-        })
+        return username
+    }
+    function getColor() {
+        let color = inquirer
+            .prompt({
+                type: "input",
+                message: "What is your favorite color?",
+                name: "color",
+                choices: ["green", "pink", "red", "blue"]
+            })
+        return color
+    }
 }
-
-promptUser();
-
-// function writeToFile(fileName, data) {
-
-// }
-
-// async function init() {
-//     console.log("hi")
-//     try {
-//         const answers = await promptUser();
-
-//         htmlGen.generateHTML(answers);
-
-//         await writeFileAsync("profile.pdf", pdf);
-
-//         console.log("Successfully wrote to profile.pdf");
-//     } catch (err) {
-//         console.log(err);
-//     }
-// }
-
-// init();
