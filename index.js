@@ -3,6 +3,7 @@ const htmlGen = require("./generateHTML");
 const fs = require("fs");
 const axios = require("axios");
 const util = require("util");
+console.log(htmlGen.colors);
 
 // const writeFileAsync = util.promisify(fs.writeFile);
 
@@ -16,7 +17,9 @@ function promptUser() {
         {
             type: "input",
             name: "color",
-            message: "What is your favorite color?"
+            message: "What is your favorite color?",
+            choices: ["green", "blue", "pink", "red"],
+            defualt: "green"
         },
     ])
         .then(function ({ username }) {
@@ -30,7 +33,6 @@ function promptUser() {
 }
 
 promptUser();
-
 
 // function writeToFile(fileName, data) {
 
