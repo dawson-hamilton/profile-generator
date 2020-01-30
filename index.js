@@ -62,3 +62,15 @@ function promptUser() {
         return color
     }
 }
+
+function gitHubCall(username) {
+    let profile = axios
+        .get(`https://api.github.com/users/${username}`)
+    return profile
+}
+function getGithubStarred(username) {
+    const stars = axios
+        .get(`https://api.github.com/users/${username}/starred`)
+    return stars
+}
+init()
