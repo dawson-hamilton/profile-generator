@@ -8,7 +8,6 @@ const writeToFileAsync = util.promisify(fs.writeFile);
 
 async function init() {
     try {
-        let name = await fullName();
         let { username } = await getName();
         let color = await getColor();
         let githubReturn = await gitHubCall(username);
@@ -27,7 +26,7 @@ async function init() {
             repos: userProfile.public_repos
         }
         let starred = userStars.data.length;
-        let newHtml = htmlGen(color, profile, starred, name)
+        let newHtml = htmlGen(color, profile, starred)
         let options = { format: 'A4' };
         await writeToFileAsync(`${username}.html`, newHtml)
         var html = await fs.readFileSync(`./${username}.html`, 'utf8')
@@ -41,26 +40,24 @@ async function init() {
     }
 }
 
-function promptUser() {
-    function getName() {
-        let username = inquirer
-            .prompt({
-                type: "input",
-                message: "What is your GITHUB username?",
-                name: "username"
-            })
-        return username
-    }
-    function getColor() {
-        let color = inquirer
-            .prompt({
-                type: "input",
-                message: "What is your favorite color?",
-                name: "color",
-                choices: ["green", "pink", "red", "blue"]
-            })
-        return color
-    }
+function getName() {
+    let username = inquirer
+        .prompt({
+            type: "input",
+            message: "What is your GITHUB username?",
+            name: "username"
+        })
+    return username
+}
+function getColor() {
+    let color = inquirer
+        .prompt({
+            type: "input",
+            message: "What is your favorite color?",
+            name: "color",
+            choices: ["green", "pink", "red", "blue"]
+        })
+    return color
 }
 
 function gitHubCall(username) {
