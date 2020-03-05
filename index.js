@@ -67,7 +67,7 @@ function getName() {
 function getColor() {
     let color = inquirer
         .prompt({
-            type: "input",
+            type: "list",
             message: "What is your favorite color?",
             name: "color",
             choices: ["green", "pink", "red", "blue"]
