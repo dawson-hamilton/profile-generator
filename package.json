@@ -1,0 +1,26 @@
+{
+  "name": "profile-generator",
+  "version": "1.0.0",
+  "description": "this program is a in line program that is designed to dynamically create a pdf file that will give a little bit of info on your github information.",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "html-pdf": "^2.2.0",
+    "inquirer": "^7.0.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dawson-hamilton/profile-generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dawson-hamilton/profile-generator/issues"
+  },
+  "homepage": "https://github.com/dawson-hamilton/profile-generator#readme"
+}
