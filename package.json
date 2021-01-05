@@ -4,7 +4,7 @@
   "description": "this program is a in line program that is designed to dynamically create a pdf file that will give a little bit of info on your github information.",
   "main": "index.js",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "html-pdf": "^2.2.0",
     "inquirer": "^7.0.6"
   },
